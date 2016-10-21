@@ -31,8 +31,7 @@ def main():
     except requests.exceptions.ConnectionError:
         print "There is a problem with your internet connectivity or DNS resolution."
     except requests.exceptions.Timeout:
-        # Maybe set up for a retry, or continue in a retry loop
-        print "It took too long for the server to respond, please try again!"
+        main()
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
         print "There was a critical error"
